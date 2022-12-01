@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <!-- Assignment: Movie Database - Upcoming Movies
+     Index Page of Movie Database - Upcoming Movies
+     Author: Audrey Harmon
+     Date: November 10, 2022
+
+     filename: index.html -->
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
+     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+     
+     <link href="style.css" rel="stylesheet"/>
+
+    <title>Movie Database - Upcoming Movies</title>
+
+  </head>
+
+    <body>
+        <!--
+          The Root element that will contain all of the vue data is created as a div
+          a for loop is instantiated within the element to loop through and hold all movies
+          in the movie array 
+        -->
+        <div v-for="movie in movies" id="root">
+          <!--the title of the page is made to hold the vue title data member-->
+          <h1 id="title" v-model="title">{{title}}</h1>
+          <!--The image for the movie is created and the src is assigned via the array in the Vue instance
+          created within the JS code-->
+          <img v-bind:src="upcomingMovieList[randomInt].image">
+          <!--The movie title is created and assigned the value of a movie based on
+          its index from the randomint generated for the array-->
+          <h2 v-model="movies">{{upcomingMovieList[randomInt].movieTitle}}</h2>
+          <!--The overview is created and displayed based on the overview data member within the array-->
+          <p class="overview" v-model="movies">{{upcomingMovieList[randomInt].overview}}</p>
+          <!--a button is created and the method for generating a random movie to be displayed
+          from the array within JS is called-->
+          <button @click="nextMovie">Next Movie</button>
+        </div>
+
+           <footer>
+            <p><strong>Audrey Harmon &copy; 2022</strong></p>
+           </footer>
+
+    </body>
+
+    <script src="scripts.js"></script>
+    <!--Vue is accessed-->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.0"></script>
+
+</html>
